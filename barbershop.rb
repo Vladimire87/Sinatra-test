@@ -23,10 +23,6 @@ get "/admin" do
   erb :admin
 end
 
-get "/users" do
-  erb :users
-end
-
 post "/admin" do
   @name = params[:name]
   @password = params[:password]
@@ -35,8 +31,8 @@ post "/admin" do
     @f = File.open "users.txt", "r"
     @f_content = @f.read
     @f.close
-    erb :users
 
+    erb :users
   else
     @access = "Acsess Denied!"
     erb :admin
